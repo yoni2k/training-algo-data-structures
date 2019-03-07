@@ -1,20 +1,20 @@
 import java.util.Arrays;
 
-public class YoniIntArrayList {
+public class YK_IntArrayList {
 
     private final int init_size = 10;
     private int[] array;
     private int used_size = 0;
 
-    public YoniIntArrayList() {
+    public YK_IntArrayList() {
         array = new int[init_size];
     }
 
-    public YoniIntArrayList(int initial_capacity) throws YoniException {
+    public YK_IntArrayList(int initial_capacity) throws YK_Exception {
         if (initial_capacity < 0)
-            throw new YoniException("Negative");
+            throw new YK_Exception("Negative");
 
-        System.out.println("New YoniIntArrayList created with capacity " + initial_capacity);
+        System.out.println("New YK_IntArrayList created with capacity " + initial_capacity);
 
         array = new int[initial_capacity];
     }
@@ -176,14 +176,14 @@ public class YoniIntArrayList {
         used_size--;
     }
 
-    private void checkIndex(int index, boolean bFollowingIndexOK) throws YoniException {
+    private void checkIndex(int index, boolean bFollowingIndexOK) throws YK_Exception {
         if (index < 0)
-            throw new YoniException("Negative");
+            throw new YK_Exception("Negative");
 
         if  (   (index > used_size) ||
                 ( (index == used_size) && (bFollowingIndexOK == false))
             )
-            throw new YoniException("Invalid");
+            throw new YK_Exception("Invalid");
     }
 
     public void set(int index, int newValue) {

@@ -13,18 +13,18 @@
 
 import java.util.HashMap;
 
-public class YoniUniqueChars {
+public class YK_UniqueChars {
 
-    public static boolean isUnique(String str) throws YoniException{
+    public static boolean isUnique(String str) throws YK_Exception {
 
         if (str == null) {
-            throw new YoniException("Null");
+            throw new YK_Exception("Null");
         }
 
         for(char c : str.toCharArray()) {
 
             if (isValidLetter(c) == false) {
-                throw new YoniException("Invalid");
+                throw new YK_Exception("Invalid");
             }
         }
 
@@ -44,16 +44,16 @@ public class YoniUniqueChars {
     }
 
     //Without using hash table
-    public static boolean isUniqueNoDataStructures(String str) throws YoniException{
+    public static boolean isUniqueNoDataStructures(String str) throws YK_Exception {
 
         if (str == null) {
-            throw new YoniException("Null");
+            throw new YK_Exception("Null");
         }
 
         for(char c : str.toCharArray()) {
 
             if (isValidLetter(c) == false) {
-                throw new YoniException("Invalid");
+                throw new YK_Exception("Invalid");
             }
         }
 

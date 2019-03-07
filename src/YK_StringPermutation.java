@@ -5,7 +5,7 @@
     - Permutation - same length
 
     Implementation details:
-    - Null considered invalid string and throws YoniException
+    - Null considered invalid string and throws YK_Exception
     - Case sensitive
     -
 
@@ -15,19 +15,18 @@
 
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-public class YoniStringPermutation {
+public class YK_StringPermutation {
 
-    static public boolean isPerm(String s1, String s2) throws YoniException {
+    static public boolean isPerm(String s1, String s2) throws YK_Exception {
         if (s1 == null) {
-            throw new YoniException("s1 Null");
+            throw new YK_Exception("s1 Null");
         }
 
         if (s2 == null) {
-            throw new YoniException("s2 Null");
+            throw new YK_Exception("s2 Null");
         }
 
         if (s1.length() != s2.length()) {

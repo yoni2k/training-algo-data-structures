@@ -7,15 +7,15 @@
 
  */
 
-public class YoniInPlaceSpaceURLReplace {
-    static public String URLify(String str, int size) throws YoniException {
+public class YK_InPlaceSpaceURLReplace {
+    static public String URLify(String str, int size) throws YK_Exception {
 
         if(size < 0) {
-            throw new YoniException("Negative");
+            throw new YK_Exception("Negative");
         }
 
         if (str == null) {
-            throw new YoniException("Null");
+            throw new YK_Exception("Null");
         }
 
         if(size == 0) {
@@ -26,7 +26,7 @@ public class YoniInPlaceSpaceURLReplace {
         char[] org = str.toCharArray();
 
         if (size > org.length) {
-            throw new YoniException("Invalid, size: " + size + ", org.length: " + org.length);
+            throw new YK_Exception("Invalid, size: " + size + ", org.length: " + org.length);
         }
 
         System.out.println("String: \"" + String.valueOf(org) + "\", size: " + size);
@@ -36,7 +36,7 @@ public class YoniInPlaceSpaceURLReplace {
 
         while(from >= 0) {
             if (to < from) {
-                throw new YoniException("Insufficient room, to: " + to + ", from: " + from + ", array: \"" + String.valueOf(org) + "\"");
+                throw new YK_Exception("Insufficient room, to: " + to + ", from: " + from + ", array: \"" + String.valueOf(org) + "\"");
             }
 
             if (org[from] == ' ') {
@@ -44,7 +44,7 @@ public class YoniInPlaceSpaceURLReplace {
                 to-=2;
 
                 if (to < from) {
-                    throw new YoniException("Insufficient room for space, to: " + to + ", from: " + from + ", array: \"" + String.valueOf(org) + "\"");
+                    throw new YK_Exception("Insufficient room for space, to: " + to + ", from: " + from + ", array: \"" + String.valueOf(org) + "\"");
                 }
 
                 System.out.println("Replacing space with \"%20\" from: " + from + ", to: " + to);

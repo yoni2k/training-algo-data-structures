@@ -4,11 +4,11 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class YoniStringPermutationTest {
+class YK_StringPermutationTest {
 
     private void checkThrow(String s1, String s2, String excMessage) {
         Exception ex;
-        ex = assertThrows(YoniException.class, () -> YoniStringPermutation.isPerm(null, "a"));
+        ex = assertThrows(YK_Exception.class, () -> YK_StringPermutation.isPerm(null, "a"));
         assertTrue(ex.getMessage().contains(excMessage));
     }
 
@@ -22,32 +22,32 @@ class YoniStringPermutationTest {
         checkThrow("", null, "Null");
         checkThrow(null, null, "Null");
 
-        assertTrue(YoniStringPermutation.isPerm("",""));
-        assertFalse(YoniStringPermutation.isPerm("","a"));
-        assertFalse(YoniStringPermutation.isPerm("a",""));
+        assertTrue(YK_StringPermutation.isPerm("",""));
+        assertFalse(YK_StringPermutation.isPerm("","a"));
+        assertFalse(YK_StringPermutation.isPerm("a",""));
     }
 
     @Test
     void differentLengths() {
-        assertFalse(YoniStringPermutation.isPerm("a",""));
-        assertFalse(YoniStringPermutation.isPerm("","a"));
-        assertFalse(YoniStringPermutation.isPerm("aa","a"));
+        assertFalse(YK_StringPermutation.isPerm("a",""));
+        assertFalse(YK_StringPermutation.isPerm("","a"));
+        assertFalse(YK_StringPermutation.isPerm("aa","a"));
     }
 
     @Test
     void permutations() {
-        assertTrue(YoniStringPermutation.isPerm("abc","bac"));
-        assertTrue(YoniStringPermutation.isPerm("aaa","aaa"));//same letter, multiple same letter
-        assertTrue(YoniStringPermutation.isPerm("aab","aba"));//multiple same letters
+        assertTrue(YK_StringPermutation.isPerm("abc","bac"));
+        assertTrue(YK_StringPermutation.isPerm("aaa","aaa"));//same letter, multiple same letter
+        assertTrue(YK_StringPermutation.isPerm("aab","aba"));//multiple same letters
     }
 
     @Test
     void notPermutations() {
-        assertFalse(YoniStringPermutation.isPerm("a","A"));//case sensitivity
-        assertFalse(YoniStringPermutation.isPerm("aabb","abb"));//same letters, not same numbers
-        assertFalse(YoniStringPermutation.isPerm("abc","abd"));//last letter different
-        assertFalse(YoniStringPermutation.isPerm("Xbc","abc"));//first letter different
-        assertFalse(YoniStringPermutation.isPerm("aab","abb"));//middle letter different
+        assertFalse(YK_StringPermutation.isPerm("a","A"));//case sensitivity
+        assertFalse(YK_StringPermutation.isPerm("aabb","abb"));//same letters, not same numbers
+        assertFalse(YK_StringPermutation.isPerm("abc","abd"));//last letter different
+        assertFalse(YK_StringPermutation.isPerm("Xbc","abc"));//first letter different
+        assertFalse(YK_StringPermutation.isPerm("aab","abb"));//middle letter different
 
     }
 
@@ -72,7 +72,7 @@ class YoniStringPermutationTest {
 
             System.out.println("In randomEquals, string: " + s1);
 
-            assertTrue(YoniStringPermutation.isPerm(s1,s2));
+            assertTrue(YK_StringPermutation.isPerm(s1,s2));
         }
     }
 
@@ -104,7 +104,7 @@ class YoniStringPermutationTest {
             System.out.println("In randomEquals, s1: " + s1);
             System.out.println("In randomEquals, s2: " + s2);
 
-            assertFalse(YoniStringPermutation.isPerm(s1,s2));
+            assertFalse(YK_StringPermutation.isPerm(s1,s2));
         }
     }
 }

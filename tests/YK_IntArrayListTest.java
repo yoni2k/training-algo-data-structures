@@ -13,11 +13,11 @@ import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class YoniIntArrayListTest {
+class YK_IntArrayListTest {
 
     @Test
     void createDefaultCapacity() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         assertEquals(10, al.getCapacity());
         assertEquals(0, al.size());
@@ -27,7 +27,7 @@ class YoniIntArrayListTest {
 
     @Test
     void createLargeCapacity() {
-        YoniIntArrayList al = new YoniIntArrayList(100);
+        YK_IntArrayList al = new YK_IntArrayList(100);
 
         assertEquals(100, al.getCapacity());
         assertEquals(0, al.size());
@@ -36,13 +36,13 @@ class YoniIntArrayListTest {
 
     @Test
     void createNegativeCapacity() {
-        YoniException exc = assertThrows(YoniException.class, () -> new YoniIntArrayList(-2) );
+        YK_Exception exc = assertThrows(YK_Exception.class, () -> new YK_IntArrayList(-2) );
         assertTrue(exc.getMessage().contains("Negative"));
     }
 
     @Test
     void addLessCapacity() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -54,7 +54,7 @@ class YoniIntArrayListTest {
 
     @Test
     void enlarge() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
         assertEquals(10, al.getCapacity());
 
         for (int i = 1; i <= 15; i++) {
@@ -68,7 +68,7 @@ class YoniIntArrayListTest {
 
     @Test
     void addAtIndexBeginning() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -86,7 +86,7 @@ class YoniIntArrayListTest {
 
     @Test
     void addAtIndexEnd() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -104,7 +104,7 @@ class YoniIntArrayListTest {
 
     @Test
     void addMiddle() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -122,7 +122,7 @@ class YoniIntArrayListTest {
 
     @Test
     void addAtIndexBeginningNoRoom() {
-        YoniIntArrayList al = new YoniIntArrayList(5);
+        YK_IntArrayList al = new YK_IntArrayList(5);
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -140,7 +140,7 @@ class YoniIntArrayListTest {
 
     @Test
     void addAtIndexEndNoRoom() {
-        YoniIntArrayList al = new YoniIntArrayList(5);
+        YK_IntArrayList al = new YK_IntArrayList(5);
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -158,7 +158,7 @@ class YoniIntArrayListTest {
 
     @Test
     void addMiddleNoRoom() {
-        YoniIntArrayList al = new YoniIntArrayList(5);
+        YK_IntArrayList al = new YK_IntArrayList(5);
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -176,7 +176,7 @@ class YoniIntArrayListTest {
 
     @Test
     void addNegativeIndex() {
-        YoniIntArrayList al = new YoniIntArrayList(5);
+        YK_IntArrayList al = new YK_IntArrayList(5);
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -185,13 +185,13 @@ class YoniIntArrayListTest {
         assertEquals(5, al.size());
         assertEquals("1 2 3 4 5 ", al.toString());
 
-        YoniException exc = assertThrows(YoniException.class, () -> al.add(-2, 100));
+        YK_Exception exc = assertThrows(YK_Exception.class, () -> al.add(-2, 100));
         assertTrue(exc.getMessage().contains("Negative"));
     }
 
     @Test
     void addTooLargeIndex() {
-        YoniIntArrayList al = new YoniIntArrayList(5);
+        YK_IntArrayList al = new YK_IntArrayList(5);
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -200,13 +200,13 @@ class YoniIntArrayListTest {
         assertEquals(5, al.size());
         assertEquals("1 2 3 4 5 ", al.toString());
 
-        YoniException exc = assertThrows(YoniException.class, () -> al.add(7, 100));
+        YK_Exception exc = assertThrows(YK_Exception.class, () -> al.add(7, 100));
         assertTrue(exc.getMessage().contains("Invalid"));
     }
 
     @Test
     void addIndexLargerThanCapacity() {
-        YoniIntArrayList al = new YoniIntArrayList(5);
+        YK_IntArrayList al = new YK_IntArrayList(5);
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -215,13 +215,13 @@ class YoniIntArrayListTest {
         assertEquals(5, al.size());
         assertEquals("1 2 3 4 5 ", al.toString());
 
-        YoniException exc = assertThrows(YoniException.class, () -> al.add(7, 100));
+        YK_Exception exc = assertThrows(YK_Exception.class, () -> al.add(7, 100));
         assertTrue(exc.getMessage().contains("Invalid"));
     }
 
     @Test
     void clear() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 11; i++)
             al.add(i);
@@ -239,7 +239,7 @@ class YoniIntArrayListTest {
 
     @Test
     void contains() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -255,7 +255,7 @@ class YoniIntArrayListTest {
 
     @Test
     void ensureCapacity() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -273,7 +273,7 @@ class YoniIntArrayListTest {
 
     @Test
     void get() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -285,26 +285,26 @@ class YoniIntArrayListTest {
         assertEquals(3, al.get(2));
         assertEquals(5,al.get(4));
 
-        YoniException exc;
-        exc = assertThrows(YoniException.class, () -> al.get(-1));
+        YK_Exception exc;
+        exc = assertThrows(YK_Exception.class, () -> al.get(-1));
         assertTrue(exc.getMessage().contains("Negative"));
 
-        exc = assertThrows(YoniException.class, () -> al.get(6));
+        exc = assertThrows(YK_Exception.class, () -> al.get(6));
         assertTrue(exc.getMessage().contains("Invalid"));
 
-        exc = assertThrows(YoniException.class, () -> al.get(9));
+        exc = assertThrows(YK_Exception.class, () -> al.get(9));
         assertTrue(exc.getMessage().contains("Invalid"));
 
-        exc = assertThrows(YoniException.class, () -> al.get(10));
+        exc = assertThrows(YK_Exception.class, () -> al.get(10));
         assertTrue(exc.getMessage().contains("Invalid"));
 
-        exc = assertThrows(YoniException.class, () -> al.get(11));
+        exc = assertThrows(YK_Exception.class, () -> al.get(11));
         assertTrue(exc.getMessage().contains("Invalid"));
     }
 
     @Test
     void removeFirst() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -322,7 +322,7 @@ class YoniIntArrayListTest {
 
     @Test
     void removeMiddle() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -340,7 +340,7 @@ class YoniIntArrayListTest {
 
     @Test
     void removeEnd() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -358,7 +358,7 @@ class YoniIntArrayListTest {
 
     @Test
     void removeInvalid() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -367,26 +367,26 @@ class YoniIntArrayListTest {
         assertEquals(5, al.size());
         assertEquals("1 2 3 4 5 ", al.toString());
 
-        YoniException exc;
-        exc = assertThrows(YoniException.class, () -> al.remove(-1));
+        YK_Exception exc;
+        exc = assertThrows(YK_Exception.class, () -> al.remove(-1));
         assertTrue(exc.getMessage().contains("Negative"));
 
-        exc = assertThrows(YoniException.class, () -> al.remove(5));
+        exc = assertThrows(YK_Exception.class, () -> al.remove(5));
         assertTrue(exc.getMessage().contains("Invalid"));
 
-        exc = assertThrows(YoniException.class, () -> al.remove(9));
+        exc = assertThrows(YK_Exception.class, () -> al.remove(9));
         assertTrue(exc.getMessage().contains("Invalid"));
 
-        exc = assertThrows(YoniException.class, () -> al.remove(10));
+        exc = assertThrows(YK_Exception.class, () -> al.remove(10));
         assertTrue(exc.getMessage().contains("Invalid"));
 
-        exc = assertThrows(YoniException.class, () -> al.remove(20));
+        exc = assertThrows(YK_Exception.class, () -> al.remove(20));
         assertTrue(exc.getMessage().contains("Invalid"));
     }
 
     @Test
     void setFirst() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -404,7 +404,7 @@ class YoniIntArrayListTest {
 
     @Test
     void setMiddle() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -422,7 +422,7 @@ class YoniIntArrayListTest {
 
     @Test
     void setEnd() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -440,7 +440,7 @@ class YoniIntArrayListTest {
 
     @Test
     void setInvalid() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
@@ -449,28 +449,28 @@ class YoniIntArrayListTest {
         assertEquals(5, al.size());
         assertEquals("1 2 3 4 5 ", al.toString());
 
-        YoniException exc;
+        YK_Exception exc;
 
 
 
-        exc = assertThrows(YoniException.class, () -> al.set(-1, 100));
+        exc = assertThrows(YK_Exception.class, () -> al.set(-1, 100));
         assertTrue(exc.getMessage().contains("Negative"));
 
-        exc = assertThrows(YoniException.class, () -> al.set(5, 100));
+        exc = assertThrows(YK_Exception.class, () -> al.set(5, 100));
         assertTrue(exc.getMessage().contains("Invalid"));
 
-        exc = assertThrows(YoniException.class, () -> al.set(9, 100));
+        exc = assertThrows(YK_Exception.class, () -> al.set(9, 100));
         assertTrue(exc.getMessage().contains("Invalid"));
 
-        exc = assertThrows(YoniException.class, () -> al.set(10, 100));
+        exc = assertThrows(YK_Exception.class, () -> al.set(10, 100));
         assertTrue(exc.getMessage().contains("Invalid"));
 
-        exc = assertThrows(YoniException.class, () -> al.set(20, 100));
+        exc = assertThrows(YK_Exception.class, () -> al.set(20, 100));
         assertTrue(exc.getMessage().contains("Invalid"));
     }
     @Test
     void trimToSizeMoreMin() {
-        YoniIntArrayList al = new YoniIntArrayList(100);
+        YK_IntArrayList al = new YK_IntArrayList(100);
 
         for (int i = 1; i <= 100; i++)
             al.add(i);
@@ -492,7 +492,7 @@ class YoniIntArrayListTest {
 
     @Test
     void trimToSizeLessMinWasMoreThanDefault() {
-        YoniIntArrayList al = new YoniIntArrayList(100);
+        YK_IntArrayList al = new YK_IntArrayList(100);
 
         for (int i = 1; i <= 100; i++)
             al.add(i);
@@ -515,7 +515,7 @@ class YoniIntArrayListTest {
 
     @Test
     void trimToSizeLessMinWasDefault() {
-        YoniIntArrayList al = new YoniIntArrayList();
+        YK_IntArrayList al = new YK_IntArrayList();
 
         for (int i = 1; i <= 5; i++)
             al.add(i);
