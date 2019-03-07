@@ -7,6 +7,8 @@
         - Initial - "a-zA-z0-1 "
         - More complex: TBD
     - Case sensitive, t!=T
+
+    Source: Cracking, page 90, 1.1
  */
 
 import java.util.HashMap;
