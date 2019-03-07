@@ -13,7 +13,7 @@
 
 import java.util.HashMap;
 
-public class UniqueChars {
+public class YoniUniqueChars {
 
     public static boolean isUnique(String str) throws YoniException{
 

@@ -2,27 +2,27 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UniqueCharsTest {
+class YoniUniqueCharsTest {
 
     @Test
     void emptyNullString() {
-        assertTrue(UniqueChars.isUnique(""));
+        assertTrue(YoniUniqueChars.isUnique(""));
 
-        Exception exc = assertThrows(YoniException.class, () -> UniqueChars.isUnique(null));
+        Exception exc = assertThrows(YoniException.class, () -> YoniUniqueChars.isUnique(null));
         assertTrue(exc.getMessage().contains("Null"));
 
     }
 
     @Test
     void unique() {
-        assertTrue(UniqueChars.isUnique("abcd"));
-        assertTrue(UniqueChars.isUnique("abcABC"));//Case insensitive
+        assertTrue(YoniUniqueChars.isUnique("abcd"));
+        assertTrue(YoniUniqueChars.isUnique("abcABC"));//Case insensitive
     }
 
     @Test
     void notUnique() {
-        assertFalse(UniqueChars.isUnique("abca"));//beg end
-        assertFalse(UniqueChars.isUnique("aabc"));//following letters
+        assertFalse(YoniUniqueChars.isUnique("abca"));//beg end
+        assertFalse(YoniUniqueChars.isUnique("aabc"));//following letters
     }
 
     @Test
@@ -32,14 +32,14 @@ class UniqueCharsTest {
         String numbers = "1234567890";
         String space = " ";
 
-        assertTrue(UniqueChars.isUnique(smallLetters));
-        assertTrue(UniqueChars.isUnique(capitalLetters));
-        assertTrue(UniqueChars.isUnique(numbers));
-        assertTrue(UniqueChars.isUnique(space));
+        assertTrue(YoniUniqueChars.isUnique(smallLetters));
+        assertTrue(YoniUniqueChars.isUnique(capitalLetters));
+        assertTrue(YoniUniqueChars.isUnique(numbers));
+        assertTrue(YoniUniqueChars.isUnique(space));
     }
 
     private void isInvalidThrown(String str) {
-        Exception exc = assertThrows(YoniException.class, () -> UniqueChars.isUnique(str));
+        Exception exc = assertThrows(YoniException.class, () -> YoniUniqueChars.isUnique(str));
         assertTrue(exc.getMessage().contains("Invalid"));
     }
 
@@ -71,23 +71,23 @@ class UniqueCharsTest {
      ------------------------------------------*/
     @Test
     void emptyNullStringNoHash() {
-        assertTrue(UniqueChars.isUniqueNoDataStructures(""));
+        assertTrue(YoniUniqueChars.isUniqueNoDataStructures(""));
 
-        Exception exc = assertThrows(YoniException.class, () -> UniqueChars.isUniqueNoDataStructures(null));
+        Exception exc = assertThrows(YoniException.class, () -> YoniUniqueChars.isUniqueNoDataStructures(null));
         assertTrue(exc.getMessage().contains("Null"));
 
     }
 
     @Test
     void uniqueNoHash() {
-        assertTrue(UniqueChars.isUniqueNoDataStructures("abcd"));
-        assertTrue(UniqueChars.isUniqueNoDataStructures("abcABC"));//Case insensitive
+        assertTrue(YoniUniqueChars.isUniqueNoDataStructures("abcd"));
+        assertTrue(YoniUniqueChars.isUniqueNoDataStructures("abcABC"));//Case insensitive
     }
 
     @Test
     void notUniqueNoHash() {
-        assertFalse(UniqueChars.isUniqueNoDataStructures("abca"));//beg end
-        assertFalse(UniqueChars.isUniqueNoDataStructures("aabc"));//following letters
+        assertFalse(YoniUniqueChars.isUniqueNoDataStructures("abca"));//beg end
+        assertFalse(YoniUniqueChars.isUniqueNoDataStructures("aabc"));//following letters
     }
 
     @Test
@@ -97,14 +97,14 @@ class UniqueCharsTest {
         String numbers = "1234567890";
         String space = " ";
 
-        assertTrue(UniqueChars.isUniqueNoDataStructures(smallLetters));
-        assertTrue(UniqueChars.isUniqueNoDataStructures(capitalLetters));
-        assertTrue(UniqueChars.isUniqueNoDataStructures(numbers));
-        assertTrue(UniqueChars.isUniqueNoDataStructures(space));
+        assertTrue(YoniUniqueChars.isUniqueNoDataStructures(smallLetters));
+        assertTrue(YoniUniqueChars.isUniqueNoDataStructures(capitalLetters));
+        assertTrue(YoniUniqueChars.isUniqueNoDataStructures(numbers));
+        assertTrue(YoniUniqueChars.isUniqueNoDataStructures(space));
     }
 
     private void isInvalidThrownNoHash(String str) {
-        Exception exc = assertThrows(YoniException.class, () -> UniqueChars.isUniqueNoDataStructures(str));
+        Exception exc = assertThrows(YoniException.class, () -> YoniUniqueChars.isUniqueNoDataStructures(str));
         assertTrue(exc.getMessage().contains("Invalid"));
     }
 
