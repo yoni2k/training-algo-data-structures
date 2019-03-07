@@ -65,6 +65,7 @@ public class YK_UpToOneEdit {
                 if(ch_small[i] != ch_big[i]) {
                     System.out.println("Insertion seen in index " + i + ", small char: " + ch_small[i] + ", big char: " + ch_big[i]);
                     bInsertSeen = true;
+                    i--; //since same index of old should be compared now
                 }
             }
         }

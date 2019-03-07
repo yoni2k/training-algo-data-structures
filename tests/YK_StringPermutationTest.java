@@ -8,7 +8,7 @@ class YK_StringPermutationTest {
 
     private void checkThrow(String s1, String s2, String excMessage) {
         Exception ex;
-        ex = assertThrows(YK_Exception.class, () -> YK_StringPermutation.isPerm(null, "a"));
+        ex = assertThrows(YK_Exception.class, () -> YK_StringPermutation.isPerm(s1, s2));
         assertTrue(ex.getMessage().contains(excMessage));
     }
 

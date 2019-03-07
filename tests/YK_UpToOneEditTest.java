@@ -70,6 +70,7 @@ class YK_UpToOneEditTest {
         assertTrue(YK_UpToOneEdit.isUpToOneEdit("ab","abc"));
     }
 
+    @Test
     void lenOneDiffNotOK() {
         //length 1 & 2
         assertFalse(YK_UpToOneEdit.isUpToOneEdit("ab","c"));
