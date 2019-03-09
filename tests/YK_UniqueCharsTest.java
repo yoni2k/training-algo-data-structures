@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class YK_UniqueCharsTest {
 
     @Test
+    void newClass() { new YK_UniqueChars(); }
+
+    @Test
     void emptyNullString() {
         assertTrue(YK_UniqueChars.isUnique(""));
 
@@ -13,18 +16,26 @@ class YK_UniqueCharsTest {
 
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Test
     void unique() {
         assertTrue(YK_UniqueChars.isUnique("abcd"));
         assertTrue(YK_UniqueChars.isUnique("abcABC"));//Case insensitive
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Test
     void notUnique() {
         assertFalse(YK_UniqueChars.isUnique("abca"));//beg end
         assertFalse(YK_UniqueChars.isUnique("aabc"));//following letters
+
+        //numbers, Capital, space
+        assertFalse(YK_UniqueChars.isUnique("1bc1"));
+        assertFalse(YK_UniqueChars.isUnique("AbcA"));
+        assertFalse(YK_UniqueChars.isUnique(" bc "));
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Test
     void validRange() {
         String smallLetters =   "abcdefghijklmnopqrstuvxyz";
@@ -43,6 +54,7 @@ class YK_UniqueCharsTest {
         assertTrue(exc.getMessage().contains("Invalid"));
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Test
     void outsideOfValidRange() {
 
@@ -80,16 +92,24 @@ class YK_UniqueCharsTest {
 
     @Test
     void uniqueNoHash() {
+        //noinspection SpellCheckingInspection
         assertTrue(YK_UniqueChars.isUniqueNoDataStructures("abcd"));
         assertTrue(YK_UniqueChars.isUniqueNoDataStructures("abcABC"));//Case insensitive
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Test
     void notUniqueNoHash() {
         assertFalse(YK_UniqueChars.isUniqueNoDataStructures("abca"));//beg end
         assertFalse(YK_UniqueChars.isUniqueNoDataStructures("aabc"));//following letters
+
+        //numbers, Capital, space
+        assertFalse(YK_UniqueChars.isUniqueNoDataStructures("1bc1"));
+        assertFalse(YK_UniqueChars.isUniqueNoDataStructures("AbcA"));
+        assertFalse(YK_UniqueChars.isUniqueNoDataStructures(" bc "));
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Test
     void validRangeNoHash() {
         String smallLetters =   "abcdefghijklmnopqrstuvxyz";
@@ -108,6 +128,7 @@ class YK_UniqueCharsTest {
         assertTrue(exc.getMessage().contains("Invalid"));
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Test
     void outsideOfValidRangeNoHash() {
 

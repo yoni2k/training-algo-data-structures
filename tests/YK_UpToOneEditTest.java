@@ -4,13 +4,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class YK_UpToOneEditTest {
 
-    private void checkThrows(String s1, String s2, String excMessage) {
+    @Test
+    void newClass() { new YK_UpToOneEdit(); }
+
+    private void checkThrows(String s1, String s2, @SuppressWarnings("SameParameterValue") String excMessage) {
         Exception ex = assertThrows(YK_Exception.class, () -> YK_UpToOneEdit.isUpToOneEdit(s1,s2));
         assertTrue(ex.getMessage().contains(excMessage));
     }
 
     @Test
     void nullEmptyStrings() {
+
         checkThrows(null, "ab", "Null");
         checkThrows("ab", null, "Null");
         checkThrows(null, null, "Null");
@@ -28,13 +32,14 @@ class YK_UpToOneEditTest {
         assertTrue(YK_UpToOneEdit.isUpToOneEdit("aa","aa"));
     }
 
+    @SuppressWarnings("SpellCheckingInspection")
     @Test
     void diffSameLen() {
         assertFalse(YK_UpToOneEdit.isUpToOneEdit("ab","ba"));//2 changes
         assertFalse(YK_UpToOneEdit.isUpToOneEdit("abc","cba"));//same letters, 2 changes
-        assertFalse(YK_UpToOneEdit.isUpToOneEdit("aac","XXc"));//consequitive, beginning
-        assertFalse(YK_UpToOneEdit.isUpToOneEdit("abbc","aXXc"));//consequitive, middle
-        assertFalse(YK_UpToOneEdit.isUpToOneEdit("abcc","abXX"));//consequitive, end
+        assertFalse(YK_UpToOneEdit.isUpToOneEdit("aac","XXc"));//consecutive, beginning
+        assertFalse(YK_UpToOneEdit.isUpToOneEdit("abbc","aXXc"));//consecutive, middle
+        assertFalse(YK_UpToOneEdit.isUpToOneEdit("abcc","abXX"));//consecutive, end
         assertFalse(YK_UpToOneEdit.isUpToOneEdit("abcd","XbXd"));//beginning, middle
         assertFalse(YK_UpToOneEdit.isUpToOneEdit("abcd","XbcX"));//beginning, end
         assertFalse(YK_UpToOneEdit.isUpToOneEdit("abcdef","abXdXf"));//middle, middle

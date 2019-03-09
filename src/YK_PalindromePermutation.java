@@ -7,9 +7,10 @@ import java.util.HashMap;
         Either pairs only, or only 1 odd letter.
  */
 
-public class YK_PolindromPermutation {
+@SuppressWarnings("WeakerAccess")
+public class YK_PalindromePermutation {
 
-    public static boolean isPermPolindrom(String str) {
+    public static boolean isPermPalindrome(String str) {
 
         if (str == null) {
             throw new YK_Exception("Null");

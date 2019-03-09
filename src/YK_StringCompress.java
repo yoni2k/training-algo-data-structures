@@ -5,6 +5,7 @@
     Can assume only letters (not numbers for example).
  */
 
+@SuppressWarnings("WeakerAccess")
 public class YK_StringCompress {
     static public String compress(String str) {
 

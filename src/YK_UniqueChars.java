@@ -13,6 +13,7 @@
 
 import java.util.HashMap;
 
+@SuppressWarnings("WeakerAccess")
 public class YK_UniqueChars {
 
     public static boolean isUnique(String str) throws YK_Exception {
@@ -23,6 +24,7 @@ public class YK_UniqueChars {
 
         for(char c : str.toCharArray()) {
 
+            //noinspection PointlessBooleanExpression
             if (isValidLetter(c) == false) {
                 throw new YK_Exception("Invalid");
             }
@@ -52,6 +54,7 @@ public class YK_UniqueChars {
 
         for(char c : str.toCharArray()) {
 
+            //noinspection PointlessBooleanExpression
             if (isValidLetter(c) == false) {
                 throw new YK_Exception("Invalid");
             }

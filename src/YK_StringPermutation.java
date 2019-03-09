@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+@SuppressWarnings("WeakerAccess")
 public class YK_StringPermutation {
 
     static public boolean isPerm(String s1, String s2) throws YK_Exception {
@@ -64,8 +65,8 @@ public class YK_StringPermutation {
             return false;
         }
 
-        System.out.println("S1 Hashmap: " + hm_s1.toString());
-        System.out.println("S2 Hashmap: " + hm_s2.toString());
+        System.out.println("S1 HashMap: " + hm_s1.toString());
+        System.out.println("S2 HashMap: " + hm_s2.toString());
         Integer val2;
 
         Set<Map.Entry<Character,Integer>> set1 = hm_s1.entrySet();
@@ -82,7 +83,7 @@ public class YK_StringPermutation {
 
             if(entry1.getValue().intValue() != val2.intValue())
             {
-                System.out.println("Following key doesn't egual, key: " + entry1.getKey() + ", value1: " + entry1.getValue() + ", value2: " + val2);
+                System.out.println("Following key doesn't equal, key: " + entry1.getKey() + ", value1: " + entry1.getValue() + ", value2: " + val2);
                 return false;
             }
         }

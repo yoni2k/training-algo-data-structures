@@ -6,7 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class YK_StringPermutationTest {
 
-    private void checkThrow(String s1, String s2, String excMessage) {
+    @Test
+    void newClass() { new YK_StringPermutation(); }
+
+    private void checkThrow(String s1, String s2, @SuppressWarnings("SameParameterValue") String excMessage) {
         Exception ex;
         ex = assertThrows(YK_Exception.class, () -> YK_StringPermutation.isPerm(s1, s2));
         assertTrue(ex.getMessage().contains(excMessage));
@@ -44,6 +47,7 @@ class YK_StringPermutationTest {
     @Test
     void notPermutations() {
         assertFalse(YK_StringPermutation.isPerm("a","A"));//case sensitivity
+        //noinspection SpellCheckingInspection
         assertFalse(YK_StringPermutation.isPerm("aabb","abb"));//same letters, not same numbers
         assertFalse(YK_StringPermutation.isPerm("abc","abd"));//last letter different
         assertFalse(YK_StringPermutation.isPerm("Xbc","abc"));//first letter different

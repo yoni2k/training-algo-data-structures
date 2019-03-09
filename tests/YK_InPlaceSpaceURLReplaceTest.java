@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class YK_InPlaceSpaceURLReplaceTest {
 
     @Test
+    void newClass() { new YK_InPlaceSpaceURLReplace(); }
+
+    @Test
     void noSpacesFull() {
         assertEquals("abc", YK_InPlaceSpaceURLReplace.URLify("abc", 3));
     }
@@ -43,6 +46,7 @@ class YK_InPlaceSpaceURLReplaceTest {
         checkThrows(null, 0, "Null");
         checkThrows("abc", 4, "Invalid");
         checkThrows("ab c", 4, "Insufficient");
+        checkThrows("ab  c   ", 5, "Insufficient");
         checkThrows("ab  c   ", 5, "Insufficient");
     }
 }

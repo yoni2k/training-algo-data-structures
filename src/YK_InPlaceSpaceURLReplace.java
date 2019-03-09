@@ -7,6 +7,7 @@
 
  */
 
+@SuppressWarnings("WeakerAccess")
 public class YK_InPlaceSpaceURLReplace {
     static public String URLify(String str, int size) throws YK_Exception {
 
@@ -35,12 +36,7 @@ public class YK_InPlaceSpaceURLReplace {
         int from = size - 1;
 
         while(from >= 0) {
-            if (to < from) {
-                throw new YK_Exception("Insufficient room, to: " + to + ", from: " + from + ", array: \"" + String.valueOf(org) + "\"");
-            }
-
             if (org[from] == ' ') {
-
                 to-=2;
 
                 if (to < from) {
@@ -67,6 +63,7 @@ public class YK_InPlaceSpaceURLReplace {
 
         int placesToMoveForward = (to + 1);
 
+        //noinspection ManualArrayCopy
         for(int i = 0; i < (org.length - placesToMoveForward); i++) {
             org[i] = org[i+placesToMoveForward];
         }

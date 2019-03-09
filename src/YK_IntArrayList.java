@@ -1,5 +1,6 @@
 import java.util.Arrays;
 
+@SuppressWarnings({"ALL", "WeakerAccess"})
 public class YK_IntArrayList {
 
     private final int init_size = 10;
@@ -180,6 +181,7 @@ public class YK_IntArrayList {
         if (index < 0)
             throw new YK_Exception("Negative");
 
+        //noinspection PointlessBooleanExpression
         if  (   (index > used_size) ||
                 ( (index == used_size) && (bFollowingIndexOK == false))
             )
