@@ -1,4 +1,4 @@
-package YK_Cracking2_LinkedLists_TESTS;
+package YK_Cracking2_LinkedLists;
 
 import YK_Common.YK_NodeSingle;
 import YK_Cracking2_LinkedLists.YK_RemoveDups;
@@ -9,6 +9,11 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 class YK_RemoveDupsTest {
+
+    @Test
+    void classTest() {
+        new YK_RemoveDups();
+    }
 
     private Object[] initNodesRemoveDupsNoHash(Integer[] arr) {
         YK_NodeSingle<Integer> head = new YK_NodeSingle<>(arr);
