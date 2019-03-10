@@ -1,4 +1,7 @@
+package YK_Cracking1_ArraysStrings;
+
 import java.util.Arrays;
+import YK_Common.*;
 
 @SuppressWarnings({"ALL", "WeakerAccess"})
 public class YK_IntArrayList {
@@ -15,7 +18,7 @@ public class YK_IntArrayList {
         if (initial_capacity < 0)
             throw new YK_Exception("Negative");
 
-        System.out.println("New YK_IntArrayList created with capacity " + initial_capacity);
+        System.out.println("New YK_Cracking1_ArraysStrings.YK_IntArrayList created with capacity " + initial_capacity);
 
         array = new int[initial_capacity];
     }

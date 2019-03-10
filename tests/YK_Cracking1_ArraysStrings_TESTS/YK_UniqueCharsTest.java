@@ -1,3 +1,7 @@
+package YK_Cracking1_ArraysStrings_TESTS;
+
+import YK_Cracking1_ArraysStrings.YK_UniqueChars;
+import YK_Common.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,7 @@
+package YK_Cracking1_ArraysStrings;
+
 import java.util.HashMap;
+import YK_Common.*;
 
 /* Source: Cracking, page 91, 1.4
     Check if permutation of a string that's given is a palindrome.
@@ -7,7 +10,6 @@ import java.util.HashMap;
         Either pairs only, or only 1 odd letter.
  */
 
-@SuppressWarnings("WeakerAccess")
 public class YK_PalindromePermutation {
 
     public static boolean isPermPalindrome(String str) {

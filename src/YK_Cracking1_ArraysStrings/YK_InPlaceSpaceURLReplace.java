@@ -1,3 +1,7 @@
+package YK_Cracking1_ArraysStrings;
+
+import YK_Common.*;
+
 /* Source: Cracking page 90 1.3
 
     URLify - every time in String have ' ' replace with "%20".  Do it in place.
@@ -7,7 +11,6 @@
 
  */
 
-@SuppressWarnings("WeakerAccess")
 public class YK_InPlaceSpaceURLReplace {
     static public String URLify(String str, int size) throws YK_Exception {
 

@@ -1,3 +1,6 @@
+package YK_Cracking1_ArraysStrings_TESTS;
+
+import YK_Cracking1_ArraysStrings.YK_StringCompress;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,7 +18,7 @@ class YK_StringCompressTest {
     @SuppressWarnings("SpellCheckingInspection")
     @Test
     void nothingToCompress() {
-        assertEquals("a",YK_StringCompress.compress("a"));
+        assertEquals("a", YK_StringCompress.compress("a"));
         assertEquals("ab",YK_StringCompress.compress("ab"));
         assertEquals("ababa",YK_StringCompress.compress("ababa"));
     }

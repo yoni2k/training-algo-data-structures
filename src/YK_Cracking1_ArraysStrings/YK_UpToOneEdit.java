@@ -1,10 +1,13 @@
+package YK_Cracking1_ArraysStrings;
+
+import YK_Common.*;
+
 /*
     Source: Cracking, page 91, 1.5
 
     Given 2 strings, return true if they are 0 or 1 letter edit away (replace, remove, insert).
  */
 
-@SuppressWarnings("WeakerAccess")
 public class YK_UpToOneEdit {
     static public boolean isUpToOneEdit(String s1, String s2) throws YK_Exception {
 

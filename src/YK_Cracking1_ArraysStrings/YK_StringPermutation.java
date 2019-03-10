@@ -1,3 +1,5 @@
+package YK_Cracking1_ArraysStrings;
+
 /* Source: Cracking, page 90, question 1.2
     Given 2 strings, write a method to decide if one is a permutation of another
 
@@ -8,17 +10,14 @@
     - Null considered invalid string and throws YK_Exception
     - Case sensitive
     -
-
-
-
  */
 
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import YK_Common.*;
 
-@SuppressWarnings("WeakerAccess")
 public class YK_StringPermutation {
 
     static public boolean isPerm(String s1, String s2) throws YK_Exception {

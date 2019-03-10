@@ -1,3 +1,8 @@
+package YK_Cracking1_ArraysStrings_TESTS;
+
+import YK_Cracking1_ArraysStrings.YK_IntArrayList;
+import YK_Common.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -42,7 +47,7 @@ class YK_IntArrayListTest {
     @Test
     void createNegativeCapacity() {
         YK_Exception exc = assertThrows(YK_Exception.class, () -> new YK_IntArrayList(-2) );
-        assertTrue(exc.getMessage().contains("Negative"));
+        Assertions.assertTrue(exc.getMessage().contains("Negative"));
     }
 
     @Test
@@ -191,7 +196,7 @@ class YK_IntArrayListTest {
         assertEquals("1 2 3 4 5 ", al.toString());
 
         YK_Exception exc = assertThrows(YK_Exception.class, () -> al.add(-2, 100));
-        assertTrue(exc.getMessage().contains("Negative"));
+        Assertions.assertTrue(exc.getMessage().contains("Negative"));
     }
 
     @Test
@@ -206,7 +211,7 @@ class YK_IntArrayListTest {
         assertEquals("1 2 3 4 5 ", al.toString());
 
         YK_Exception exc = assertThrows(YK_Exception.class, () -> al.add(7, 100));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
     }
 
     @Test
@@ -221,7 +226,7 @@ class YK_IntArrayListTest {
         assertEquals("1 2 3 4 5 ", al.toString());
 
         YK_Exception exc = assertThrows(YK_Exception.class, () -> al.add(7, 100));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
     }
 
     @Test
@@ -292,19 +297,19 @@ class YK_IntArrayListTest {
 
         YK_Exception exc;
         exc = assertThrows(YK_Exception.class, () -> al.get(-1));
-        assertTrue(exc.getMessage().contains("Negative"));
+        Assertions.assertTrue(exc.getMessage().contains("Negative"));
 
         exc = assertThrows(YK_Exception.class, () -> al.get(6));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
 
         exc = assertThrows(YK_Exception.class, () -> al.get(9));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
 
         exc = assertThrows(YK_Exception.class, () -> al.get(10));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
 
         exc = assertThrows(YK_Exception.class, () -> al.get(11));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
     }
 
     @Test
@@ -374,19 +379,19 @@ class YK_IntArrayListTest {
 
         YK_Exception exc;
         exc = assertThrows(YK_Exception.class, () -> al.remove(-1));
-        assertTrue(exc.getMessage().contains("Negative"));
+        Assertions.assertTrue(exc.getMessage().contains("Negative"));
 
         exc = assertThrows(YK_Exception.class, () -> al.remove(5));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
 
         exc = assertThrows(YK_Exception.class, () -> al.remove(9));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
 
         exc = assertThrows(YK_Exception.class, () -> al.remove(10));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
 
         exc = assertThrows(YK_Exception.class, () -> al.remove(20));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
     }
 
     @Test
@@ -459,19 +464,19 @@ class YK_IntArrayListTest {
 
 
         exc = assertThrows(YK_Exception.class, () -> al.set(-1, 100));
-        assertTrue(exc.getMessage().contains("Negative"));
+        Assertions.assertTrue(exc.getMessage().contains("Negative"));
 
         exc = assertThrows(YK_Exception.class, () -> al.set(5, 100));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
 
         exc = assertThrows(YK_Exception.class, () -> al.set(9, 100));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
 
         exc = assertThrows(YK_Exception.class, () -> al.set(10, 100));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
 
         exc = assertThrows(YK_Exception.class, () -> al.set(20, 100));
-        assertTrue(exc.getMessage().contains("Invalid"));
+        Assertions.assertTrue(exc.getMessage().contains("Invalid"));
     }
     @Test
     void trimToSizeMoreMin() {

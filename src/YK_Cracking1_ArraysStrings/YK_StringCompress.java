@@ -1,3 +1,5 @@
+package YK_Cracking1_ArraysStrings;
+
 /* Source: Cracking page 91 1.6
 
     String compression: compress strings aabcccccaaa -> a2b1c5a3.
@@ -5,7 +7,6 @@
     Can assume only letters (not numbers for example).
  */
 
-@SuppressWarnings("WeakerAccess")
 public class YK_StringCompress {
     static public String compress(String str) {
 

@@ -1,3 +1,6 @@
+package YK_Cracking1_ArraysStrings_TESTS;
+
+import YK_Cracking1_ArraysStrings.YK_ZeroMatrix;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -6,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class YK_ZeroMatrixTest {
 
-    int[][] build2x1Zeros = {{0},{0}};
-    int[][] build1x2Zeros = {{0,0}};
-    int[][] build4x3Zeros = {{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}};
+    private int[][] build2x1Zeros = {{0},{0}};
+    private int[][] build1x2Zeros = {{0,0}};
+    private int[][] build4x3Zeros = {{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}};
 
     @Test
     void smallMatrixes() {

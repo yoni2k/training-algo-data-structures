@@ -1,3 +1,5 @@
+package YK_Cracking1_ArraysStrings;
+
 /* Source: cracking p. 91, exercise 1.7
 
     Rotate matrix of size NxN by 90 degrees.

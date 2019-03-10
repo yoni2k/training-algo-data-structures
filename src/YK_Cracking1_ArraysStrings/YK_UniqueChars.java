@@ -1,4 +1,4 @@
-
+package YK_Cracking1_ArraysStrings;
 /*  Implement an algorithm to determine if a string has all unique characters.
     What if you can't use unique characters?
 
@@ -12,8 +12,8 @@
  */
 
 import java.util.HashMap;
+import YK_Common.*;
 
-@SuppressWarnings("WeakerAccess")
 public class YK_UniqueChars {
 
     public static boolean isUnique(String str) throws YK_Exception {
