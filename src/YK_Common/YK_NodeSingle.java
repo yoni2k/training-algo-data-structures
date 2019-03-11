@@ -154,6 +154,14 @@ public class YK_NodeSingle<E> {
         return gotData;
     }
 
+    public YK_NodeSingle<E> getLastNode() {
+        YK_NodeSingle<E> last = findLast(this);
+
+        System.out.println("Got last node with data: " + last.get() + ", in array: " + Arrays.toString(toArray()));
+
+        return last;
+    }
+
     public int indexOf(E element) {
 
         System.out.println("Looking for element " + element + ", in array: " + Arrays.toString(toArray()));
