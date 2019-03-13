@@ -1,4 +1,4 @@
-package YK_Cracking2_LinkedLists;
+package YK_Cracking2_LinkedLists_TESTS;
 
 import YK_Common.YK_NodeSingle;
 import YK_Cracking2_LinkedLists.YK_RemoveDups;
