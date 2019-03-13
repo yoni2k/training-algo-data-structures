@@ -1,5 +1,6 @@
 package YK_Cracking4_TreesGraphs;
 
+import YK_Common.YK_BinaryBFS;
 import YK_Common.YK_BinaryTreeNode;
 
 import java.util.Arrays;
@@ -95,10 +96,15 @@ public class YK_MinimalBinarySearchTree {
         System.out.println("---------------------------------------------");
         System.out.println("End YK_MinimalBinarySearchTree, isComplete: " + isComplete + ", arr: " + Arrays.toString(arr) + ", tree: ");
         System.out.println(head.treeToString());
+        YK_BinaryBFS<Integer> bfs = new YK_BinaryBFS<>(head); //For testing purposes of YK_BinaryBFS
         System.out.println("=============================================");
     }
 
     public boolean equals(YK_BinaryTreeNode<Integer> other) {
         return head.equals(other);
+    }
+
+    public YK_BinaryTreeNode<Integer> getHead() {
+        return head;
     }
 }

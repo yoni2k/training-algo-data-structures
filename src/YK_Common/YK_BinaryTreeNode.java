@@ -1,5 +1,6 @@
 package YK_Common;
 
+
 public class YK_BinaryTreeNode<E> {
 
     private E value;
@@ -10,6 +11,7 @@ public class YK_BinaryTreeNode<E> {
         this.value = null;
         left = null;
         right = null;
+
     }
 
     public YK_BinaryTreeNode(E value) {
@@ -48,6 +50,10 @@ public class YK_BinaryTreeNode<E> {
         return right;
     }
 
+    public String toString() {
+        return nodeToString();
+    }
+
     public String nodeToString() {
         String str = "Value: " + value + ", Left: ";
         str += ((left == null) ? "Null" : left.value);
@@ -63,6 +69,14 @@ public class YK_BinaryTreeNode<E> {
         str += (right != null) ? ("\n" + right.treeToString()) : "";
 
         return str;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if(obj.getClass() == this.getClass())
+            return equals((YK_BinaryTreeNode<E>)obj);
+        else return false;
     }
 
     public boolean equals(YK_BinaryTreeNode<E> obj) {
