@@ -27,7 +27,7 @@ class YK_CommonAncestorTest {
     }
 
     private YK_TESTS_CommonAncestorsPair buildExampleTree() {
-        ArrayList<YK_BinaryTreeNode<Integer>> nodes = getBinaryTreeNodes(13);
+        ArrayList<YK_BinaryTreeNode<Integer>> nodes = getBinaryTreeNodes(14);
 
         setConn(nodes, 1, 2, YK_LEFT);
         setConn(nodes, 1, 3, YK_RIGHT);
@@ -159,5 +159,48 @@ class YK_CommonAncestorTest {
                         nodesHead.nodes.get(12)));
     }
 
+    @Test
+    void noAncestor() {
+        YK_TESTS_CommonAncestorsPair nodesHead = buildExampleTree();
 
+        assertNull(new YK_CommonAncestor().getCommonAncestor(
+                        nodesHead.head,
+                        nodesHead.nodes.get(1),
+                        nodesHead.nodes.get(14)));
+
+        assertNull(new YK_CommonAncestor().getCommonAncestor(
+                        nodesHead.head,
+                        nodesHead.nodes.get(14),
+                        nodesHead.nodes.get(1)));
+
+        assertNull(new YK_CommonAncestor().getCommonAncestor(
+                        nodesHead.head,
+                        nodesHead.nodes.get(7),
+                        nodesHead.nodes.get(14)));
+
+        assertNull(new YK_CommonAncestor().getCommonAncestor(
+                        nodesHead.head,
+                        nodesHead.nodes.get(14),
+                        nodesHead.nodes.get(7)));
+
+        assertNull(new YK_CommonAncestor().getCommonAncestor(
+                        nodesHead.head,
+                        nodesHead.nodes.get(6),
+                        nodesHead.nodes.get(14)));
+
+        assertNull(new YK_CommonAncestor().getCommonAncestor(
+                        nodesHead.head,
+                        nodesHead.nodes.get(14),
+                        nodesHead.nodes.get(6)));
+
+        assertNull(new YK_CommonAncestor().getCommonAncestor(
+                        nodesHead.head,
+                        nodesHead.nodes.get(13),
+                        nodesHead.nodes.get(14)));
+
+        assertNull(new YK_CommonAncestor().getCommonAncestor(
+                        nodesHead.head,
+                        nodesHead.nodes.get(14),
+                        nodesHead.nodes.get(13)));
+    }
 }
