@@ -5,6 +5,7 @@ import YK_Cracking4_TreesGraphs.YK_BSTSequences;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 import static YK_Cracking4_TreesGraphs_TESTS.YK_TESTS_TreeUtils.YK_RIGHT_LEFT.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -25,12 +26,12 @@ class YK_BSTSequencesTest {
         assertEquals(arrayOfArraysExp, new YK_BSTSequences().getBSTSequences(head));
     }
 
-    private ArrayList<ArrayList<Integer>> getExpected(int [][] arrays) {
-        ArrayList<ArrayList<Integer>> arrayOfArraysExp = new ArrayList<>();
+    private ArrayList<LinkedList<Integer>> getExpected(int [][] arrays) {
+        ArrayList<LinkedList<Integer>> arrayOfArraysExp = new ArrayList<>();
 
         for (int [] array: arrays) {
 
-            ArrayList<Integer> singleArray = new ArrayList<>();
+            LinkedList<Integer> singleArray = new LinkedList<>();
             for (int single : array) {
                 singleArray.add(single);
             }
@@ -54,7 +55,7 @@ class YK_BSTSequencesTest {
         int [][] arrayOfArraysExpected = new int[1][];
         arrayOfArraysExpected[0] = new int[] {5,4,3,2,1};
 
-        ArrayList<ArrayList<Integer>> arrayListOfArraysExp = getExpected(arrayOfArraysExpected);
+        ArrayList<LinkedList<Integer>> arrayListOfArraysExp = getExpected(arrayOfArraysExpected);
 
         assertEquals(arrayListOfArraysExp, new YK_BSTSequences().getBSTSequences(head));
     }
@@ -73,7 +74,7 @@ class YK_BSTSequencesTest {
         int [][] arrayOfArraysExpected = new int[1][];
         arrayOfArraysExpected[0] = new int[] {1,2,3,4,5};
 
-        ArrayList<ArrayList<Integer>> arrayListOfArraysExp = getExpected(arrayOfArraysExpected);
+        ArrayList<LinkedList<Integer>> arrayListOfArraysExp = getExpected(arrayOfArraysExpected);
 
         assertEquals(arrayListOfArraysExp, new YK_BSTSequences().getBSTSequences(head));
     }
@@ -102,7 +103,7 @@ class YK_BSTSequencesTest {
         arrayOfArraysExpected[4] = new int[] {3,4,2,1,5};
         arrayOfArraysExpected[5] = new int[] {3,4,2,5,1};
 
-        ArrayList<ArrayList<Integer>> arrayListOfArraysExp = getExpected(arrayOfArraysExpected);
+        ArrayList<LinkedList<Integer>> arrayListOfArraysExp = getExpected(arrayOfArraysExpected);
 
         assertTrue(myCompare(arrayListOfArraysExp, new YK_BSTSequences().getBSTSequences(head)));
     }
@@ -132,7 +133,7 @@ class YK_BSTSequencesTest {
         arrayOfArraysExpected[4] = new int[] {3,5,1,2,4};
         arrayOfArraysExpected[5] = new int[] {3,5,1,4,2};
 
-        ArrayList<ArrayList<Integer>> arrayListOfArraysExp = getExpected(arrayOfArraysExpected);
+        ArrayList<LinkedList<Integer>> arrayListOfArraysExp = getExpected(arrayOfArraysExpected);
 
         assertTrue(myCompare(arrayListOfArraysExp, new YK_BSTSequences().getBSTSequences(head)));
     }
@@ -156,7 +157,7 @@ class YK_BSTSequencesTest {
         assertEquals(80, new YK_BSTSequences().getBSTSequences(head).size());
     }
 
-    private boolean myCompare(ArrayList<ArrayList<Integer>> exp, ArrayList<ArrayList<Integer>> actual) {
+    private boolean myCompare(ArrayList<LinkedList<Integer>> exp, ArrayList<LinkedList<Integer>> actual) {
 
         System.out.println("myCompare, expected: " + exp);
         System.out.println("myCompare, actual: " + actual);
@@ -166,7 +167,7 @@ class YK_BSTSequencesTest {
             return false;
         }
 
-        for (ArrayList<Integer> single: exp) {
+        for (LinkedList<Integer> single: exp) {
             if(actual.contains(single) == false) {
                 System.out.println("Following expected doesn't appear: " + single);
                 return false;
