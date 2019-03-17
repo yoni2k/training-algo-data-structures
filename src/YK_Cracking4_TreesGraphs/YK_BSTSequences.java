@@ -17,43 +17,39 @@ Committing with ArrayList<ArrayList<Integer>> and then will change to ArrayList<
 
 public class YK_BSTSequences {
 
-    private ArrayList<LinkedList<Integer>> getSinglePerm(LinkedList<Integer> list1, LinkedList<Integer> list2) {
+    private void getSinglePerm(LinkedList<Integer> list1,
+                               LinkedList<Integer> list2,
+                               ArrayList<LinkedList<Integer>> results,
+                               LinkedList<Integer> prefix) {
 
-        System.out.println("Start getSinglePerm - list1: " + list1 + ", list2: " + list2);
+        System.out.println("Start getSinglePerm - list1: " + list1 + ", list2: " + list2 + ", prefix: " + prefix);
 
-        ArrayList<LinkedList<Integer>> resultArrayOfArrays = new ArrayList<>();
-
-        if (list1.size() == 0) {
-            resultArrayOfArrays.add(new LinkedList<>(list2));
-            System.out.println("getSinglePerm, list1.size() is 0, returning: " + resultArrayOfArrays);
-            return resultArrayOfArrays;
-        }
-        if (list2.size() == 0) {
-            resultArrayOfArrays.add(new LinkedList<>(list1));
-            System.out.println("getSinglePerm, list2.size() is 0, returning: " + resultArrayOfArrays);
-            return resultArrayOfArrays;
+        if ((list1.size() == 0) || (list2.size() == 0)) {
+            LinkedList<Integer> newList = new LinkedList<>(prefix);
+            newList.addAll(list1);
+            newList.addAll(list2);
+            results.add(newList);
+            System.out.println("getSinglePerm, One of lists sizes is 0, list1: " + list1 + ", list2: " + list2 + ", returning: " + results);
+            return;
         }
 
         Integer intRemoved;
         ArrayList<LinkedList<Integer>> recurseResult;
 
-        intRemoved = list1.get(0);
-        System.out.println("intRemoved from list1: " + intRemoved + ", list1: " + list1 + ", list2: " + list2);
-        recurseResult = getSinglePerm(new LinkedList<>(list1.subList(1, list1.size())), list2);
-        for(LinkedList<Integer> singleArray : recurseResult) {
-            singleArray.add(0, intRemoved);
-        }
-        resultArrayOfArrays.addAll(recurseResult);
+        intRemoved = list1.removeFirst();
+        prefix.addLast(intRemoved);
+        System.out.println("intRemoved from list1: " + intRemoved + ", list1: " + list1 + ", list2: " + list2 + ", prefix: " + prefix);
+        getSinglePerm(list1, list2, results, prefix);
+        list1.addFirst(intRemoved);
+        prefix.removeLast();
 
-        intRemoved = list2.get(0);
-        System.out.println("intRemoved from list2: " + intRemoved + ", list1: " + list1 + ", list2: " + list2);
-        recurseResult = getSinglePerm(list1,new LinkedList<>(list2.subList(1, list2.size())));
-        for(LinkedList<Integer> singleArray : recurseResult) {
-            singleArray.add(0, intRemoved);
-        }
-        resultArrayOfArrays.addAll(recurseResult);
+        intRemoved = list2.removeFirst();
+        prefix.addLast(intRemoved);
+        System.out.println("intRemoved from list2: " + intRemoved + ", list1: " + list1 + ", list2: " + list2 + ", prefix: " + prefix);
+        getSinglePerm(list1, list2, results, prefix);
+        list2.addFirst(intRemoved);
+        prefix.removeLast();
 
-        return resultArrayOfArrays;
     }
 
     private ArrayList<LinkedList<Integer>> getPerm(ArrayList<LinkedList<Integer>> arrayArrays1, ArrayList<LinkedList<Integer>> arrayArrays2) {
@@ -65,7 +61,9 @@ public class YK_BSTSequences {
 
         for(LinkedList<Integer> single1: arrayArrays1) {
             for(LinkedList<Integer> single2: arrayArrays2) {
-                resultArrayOfArrays.addAll(getSinglePerm(single1, single2));
+                ArrayList<LinkedList<Integer>> result2Arrays = new ArrayList<>();
+                getSinglePerm(single1, single2, result2Arrays, new LinkedList<>());
+                resultArrayOfArrays.addAll(result2Arrays);
             }
         }
 
