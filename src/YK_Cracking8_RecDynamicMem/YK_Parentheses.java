@@ -12,56 +12,31 @@ Committing before redoing.
 
 public class YK_Parentheses {
 
-    private void addToAll(char c, ArrayList<StringBuilder> vars) {
+    private void recParVars(int openLeft, int closeLeft, int index, char[] singleStr, ArrayList<String> vars) {
 
-        for(StringBuilder sb : vars) {
-            sb.append(c);
-        }
-    }
-
-    private void recParVars(int openLeft, int closeLeft, ArrayList<StringBuilder> vars) {
-
-        ArrayList<StringBuilder> varsCopy = null;
-
-        if((openLeft > 0) && (closeLeft > 0)) {
-            varsCopy = new ArrayList<>();
-            for (StringBuilder sb : vars) {
-                varsCopy.add(new StringBuilder(sb));
-            }
+        if ((openLeft == 0) && (closeLeft == 0)) {
+            vars.add(new String(singleStr));
+            return;
         }
 
         if (openLeft > 0) {
-            addToAll('(', vars);
-            recParVars(openLeft - 1, closeLeft + 1, vars);
+            singleStr[index] = '(';
+            recParVars(openLeft - 1, closeLeft + 1, index + 1, singleStr, vars);
         }
+
         if (closeLeft > 0) {
-            if (varsCopy == null) {
-                addToAll(')', vars);
-                recParVars(openLeft, closeLeft - 1, vars);
-            }
-            else {
-                addToAll(')', varsCopy);
-                recParVars(openLeft, closeLeft - 1, varsCopy);
-                vars.addAll(varsCopy);
-            }
+            singleStr[index] = ')';
+            recParVars(openLeft, closeLeft - 1, index + 1, singleStr, vars);
         }
     }
 
-    public String[] parenthesisVariations(int num) {
-        ArrayList<StringBuilder> vars = new ArrayList<>();
+    public ArrayList<String> parenthesisVariations(int num) {
 
-        vars.add(new StringBuilder());
+        ArrayList<String> vars = new ArrayList<>();
+        char[] singleString = new char[num*2];
 
-        recParVars(num, 0, vars);
+        recParVars(num, 0, 0, singleString, vars);
 
-        String[] stringVars = new String[vars.size()];
-
-        int i = 0;
-        for(StringBuilder sb : vars) {
-            stringVars[i] = sb.toString();
-            i++;
-        }
-
-        return stringVars;
+        return vars;
     }
 }
