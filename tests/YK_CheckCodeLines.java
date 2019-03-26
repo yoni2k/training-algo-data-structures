@@ -30,7 +30,7 @@ public class YK_CheckCodeLines {
 
         for (final File fileEntry : folder.listFiles()) {
             if (fileEntry.isDirectory()) {
-                throw new YK_Exception("Unexpected directory found");
+                linesInFolder += getLinesInFolder(fileEntry);
             } else {
                 linesInFolder += getLinesInFile(fileEntry);
             }
