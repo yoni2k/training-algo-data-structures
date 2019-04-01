@@ -2,14 +2,14 @@ package YK_AmazonPrep;
 
 import java.util.ArrayList;
 
-public class YK_5MinHeap {
+public class YK_5MinMaxMyHeap implements YK_5MinMaxHeapInterface {
 
     enum YK_MIN_MAX{MIN, MAX}
 
     private ArrayList<Integer> arr = new ArrayList<>();
     private YK_MIN_MAX minMax;
 
-    public YK_5MinHeap(YK_MIN_MAX minMax) {
+    public YK_5MinMaxMyHeap(YK_MIN_MAX minMax) {
         this.minMax = minMax;
     }
 
