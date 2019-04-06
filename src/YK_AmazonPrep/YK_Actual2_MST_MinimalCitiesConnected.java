@@ -9,13 +9,16 @@ import java.util.PriorityQueue;
  build a tree with minimal cost and return the cost
 
  This is a variation of the MST - minimal spanning tree problem.
- I think what I implemented is a variation of Prim's algorithm.   Complexity O(E log E) where E is the number of connections / roads which is in worst case
- O(V^2 log V^2).
+ I think what I implemented is a variation of Prim's algorithm.
+ Complexity of my implementation is O(E^2 log E) where E is the number of connections / roads which is in worst case
+ O(V^4 log V^2).  Actually it will be much less, since number of connection searched in is constantly becoming smaller.
+ Prim claims to be O(E log V).  By doing a PriorityQueue of Vertices/cities instead of Edges/Connection, complexity can be greatly reduced.
  There are a few other algorithms that can be implemented, but the are more complicated to implement
 
  Includes very partial implementation done during interview in comment below
 
  See https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/ for proper Prim's Java solution
+ Better for O(E log V): https://www.geeksforgeeks.org/prims-mst-for-adjacency-list-representation-greedy-algo-6/
  */
 
 public class YK_Actual2_MST_MinimalCitiesConnected {
@@ -41,6 +44,7 @@ public class YK_Actual2_MST_MinimalCitiesConnected {
                                                     int[][] costNewRoadsConstruct) {
         PriorityQueue<Conn> pq = new PriorityQueue<>();
 
+        //existing roads added with price 0 - will be added to the tree if helpful always first
         for (int[] road : roadsAvailable) {
             pq.add(new Conn(road[0], road[1], 0));
         }
@@ -72,26 +76,27 @@ public class YK_Actual2_MST_MinimalCitiesConnected {
         connected.put(0, true);
 
         do {
-            sizeBefore = pq.size();
+            sizeBefore = pq.size();//every time at least one node needs to be removed to make progress
             pqTemp = new PriorityQueue<>(pq);
 
+            //while loop is E*log E, where is the number of connections
             while((conn = pqTemp.poll()) != null) {
                 if (connected.containsKey(conn.from) && !connected.containsKey(conn.to)) {
                     connected.put(conn.to, true);
                     totalPrice += conn.cost;
                     pq.remove(conn);
-                    break;
+                    break;//need to restart, since perhaps the added node made adding other connections possible/worthy
                 } else if (connected.containsKey(conn.to) && !connected.containsKey(conn.from)) {
                     connected.put(conn.from, true);
                     totalPrice += conn.cost;
                     pq.remove(conn);
-                    break;
+                    break;//need to restart, since perhaps the added node made adding other connections possible/worthy
                 } else if (connected.containsKey(conn.to) && (connected.containsKey(conn.from))) {
-                    pq.remove(conn);
+                    pq.remove(conn);//optimization - remove all nodes that will never help us so don't get compared and searched in every time
                 }
             }
 
-        } while (sizeBefore != pq.size());
+        } while (sizeBefore != pq.size());//outer loop will be done up to E times
 
         if (connected.size() == numTotalAvailableCities) {
             return totalPrice;
