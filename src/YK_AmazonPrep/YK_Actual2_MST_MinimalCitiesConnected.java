@@ -14,6 +14,8 @@ import java.util.PriorityQueue;
  There are a few other algorithms that can be implemented, but the are more complicated to implement
 
  Includes very partial implementation done during interview in comment below
+
+ See https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/ for proper Prim's Java solution
  */
 
 public class YK_Actual2_MST_MinimalCitiesConnected {
