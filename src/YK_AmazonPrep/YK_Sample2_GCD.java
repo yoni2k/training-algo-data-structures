@@ -52,4 +52,22 @@ public class YK_Sample2_GCD {
 
         return gcd;
     }
+
+    private int getGcd(int a, int b) {
+        if(a == 0) {
+            return b;
+        }
+        return getGcd(b % a, a);
+    }
+
+    public int recOneByOneGCD(int[] arr) {
+
+        int gcd = arr[0];
+
+        for(int i = 1; i < arr.length; i++) {
+            gcd = getGcd(gcd, arr[i]);
+        }
+
+        return gcd;
+    }
 }
