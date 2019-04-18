@@ -10,13 +10,14 @@ package YK_Cracking16_Moderate;
 
 import YK_Common.YK_DoublePoint;
 import YK_Common.YK_Line;
+import YK_Common.YK_LineSegment;
 
 public class YK_Mod3_LineInterception {
 
     public YK_DoublePoint getIntercept(YK_DoublePoint s1, YK_DoublePoint e1, YK_DoublePoint s2, YK_DoublePoint e2) {
-        YK_Line l1 = new YK_Line(s1, e1);
-        YK_Line l2 = new YK_Line(s2, e2);
+        YK_LineSegment ls1 = new YK_LineSegment(s1, e1);
+        YK_LineSegment ls2 = new YK_LineSegment(s2, e2);
 
-        return l1.getIntercept(l2);
+        return ls1.getInterceptInSegment(ls2);
     }
 }
