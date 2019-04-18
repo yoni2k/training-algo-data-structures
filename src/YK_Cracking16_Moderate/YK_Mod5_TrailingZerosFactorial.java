@@ -10,6 +10,7 @@ import java.util.HashMap;
     In any case, my implementation is O(n), heavy guns while in the book it's much simpler and lightweight
  */
 
+
 public class YK_Mod5_TrailingZerosFactorial {
 
     private int getPowersOf5WithMem(int n, HashMap<Integer, Integer> powers) {
@@ -17,12 +18,10 @@ public class YK_Mod5_TrailingZerosFactorial {
             return 0;
         }
 
-        int res = 0;
-
         if(powers.containsKey(n)) {
             return powers.get(n);
         } else if ((n % 5) == 0) {
-            res = getPowersOf5WithMem(n / 5, powers) + 1;
+            int res = getPowersOf5WithMem(n / 5, powers) + 1;
             powers.put(n, res);
             return res;
         } else {
