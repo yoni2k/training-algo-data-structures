@@ -15,9 +15,12 @@ Includes another implementation after looking at the book of looking right and l
 Following optimization for memorization for solution 1, it's now O(n) memory, since it only saves points that either start with index 0
     or finish with index of the end.  It was probably the case before also, just wasn't that clear.
     My Solution #1 is very similar to what's done in the book's solution #2
+
+Implementation #3 after seeing the final idea in the book - the only solution of O(n) space and time
  */
 
 import java.awt.*;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class YK_Hard21_VolumeHistogram {
@@ -165,7 +168,45 @@ public class YK_Hard21_VolumeHistogram {
 
     public int getWaterHistogramLookRightLeft(int[] hist) {
         HashMap<Point, Integer> memMaxInds = new HashMap<>();
-        helpMemo(hist, memMaxInds);//TODO - didn't help, should leave?
         return lookRightLeft(hist, 0, hist.length - 1, -1, -1, memMaxInds);
+    }
+
+    /**
+     * After reading details of book's implementation
+     */
+
+    private int getSingleWaterNew(int value, int maxLeft, int maxRight) {
+        int thisWater = Integer.min(maxLeft, maxRight) - value;
+        return (thisWater > 0) ? thisWater : 0;
+    }
+
+    private int[] getMemoLeft(int[] hist) {
+        int[] memLeft = new int[hist.length]; //for simplicity size is the same, really first is not needed
+        int max = hist[0];
+        for (int i = 1; i < (hist.length - 1); i++) {
+            memLeft[i] = max;
+            max = Integer.max(max, hist[i]);
+        }
+        return memLeft;
+    }
+
+    private int[] getMemoRight(int[] hist) {
+        int[] memRight = new int[hist.length];//for simplicity size is the same, really last is not needed
+        int max = hist[hist.length - 1];
+        for (int i = hist.length - 1; i > 0; i--) {
+            memRight[i] = max;
+            max = Integer.max(max, hist[i]);
+        }
+        return memRight;
+    }
+
+    public int getWaterHistogramOofN(int[] hist) {
+        int[] memoLeft = getMemoLeft(hist);
+        int[] memoRight = getMemoRight(hist);
+        int water = 0;
+        for(int i = 1; i < (hist.length - 1); i++) { //no point checking 1st and last member
+            water += getSingleWaterNew(hist[i], memoLeft[i], memoRight[i]);
+        }
+        return water;
     }
 }
