@@ -11,6 +11,9 @@ Implementation with memorization. Every pass is O(n),
 
 Includes another implementation after looking at the book of looking right and left -
     it's still O(n log n) both time and space, and not space O(n) both like in the book
+
+Following optimization for memorization for solution 1, it's now O(n) memory, since it only saves points that either start with index 0
+    or finish with index of the end.  It was probably the case before also, just wasn't that clear
  */
 
 import java.awt.*;
@@ -74,14 +77,37 @@ public class YK_Hard21_VolumeHistogram {
             water += fill(hist, maxLeftInd, maxInd);
             water += getWater(hist, start, maxLeftInd, memMaxInds);
         }
-        System.out.println("getWater END, start: " + start + ", end: " + end + ", water: " + water);
+        //System.out.println("getWater END, start: " + start + ", end: " + end + ", water: " + water);
         return water;
 
     }
 
     public int getWaterHistogramOrig(int[] hist) {
         HashMap<Point, Integer> memMaxInds = new HashMap<>();
+        helpMemo(hist, memMaxInds);
         return getWater(hist, 0, hist.length - 1, memMaxInds);
+    }
+
+    private void helpMemo(int[] hist, HashMap<Point, Integer> memMaxInds) {
+        int max = hist[0];
+        int maxInd = 0;
+        for(int i = 1; i < hist.length; i++) {
+            if(hist[i] > max) {
+                max = hist[i];
+                maxInd = i;
+            }
+            memMaxInds.put(new Point(0, i), maxInd);
+        }
+
+        max = hist[hist.length - 1];
+        maxInd = hist.length - 1;
+        for(int i = (hist.length - 2); i >= 0; i--) {
+            if(hist[i] > max) {
+                max = hist[i];
+                maxInd = i;
+            }
+            memMaxInds.put(new Point(i, hist.length - 1), maxInd);
+        }
     }
 
     /**
@@ -138,6 +164,7 @@ public class YK_Hard21_VolumeHistogram {
 
     public int getWaterHistogramLookRightLeft(int[] hist) {
         HashMap<Point, Integer> memMaxInds = new HashMap<>();
+        helpMemo(hist, memMaxInds);//TODO - didn't help, should leave?
         return lookRightLeft(hist, 0, hist.length - 1, -1, -1, memMaxInds);
     }
 }
