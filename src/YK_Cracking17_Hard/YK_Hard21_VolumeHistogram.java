@@ -13,7 +13,8 @@ Includes another implementation after looking at the book of looking right and l
     it's still O(n log n) both time and space, and not space O(n) both like in the book
 
 Following optimization for memorization for solution 1, it's now O(n) memory, since it only saves points that either start with index 0
-    or finish with index of the end.  It was probably the case before also, just wasn't that clear
+    or finish with index of the end.  It was probably the case before also, just wasn't that clear.
+    My Solution #1 is very similar to what's done in the book's solution #2
  */
 
 import java.awt.*;
